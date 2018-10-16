@@ -1,0 +1,28 @@
+<p>
+  todo
+</p>
+<p>
+    {{bla}}
+  </p>
+
+<label for="todo">TODO</label>
+<form (submit)="addMethod(add.value)">
+  <input type="text" #add id="name"> 
+  <input type="submit" value="Add">
+</form>
+
+<hr>
+<hr>
+
+<label for="listing">Listing</label>
+  <div *ngFor="let todo of todolist" [ngClass]="{'status': todo.status}">
+    <input type="checkbox" [checked]="todo.status" (click)="toggleTasks(todo.name)"  />
+     {{todo.name}} <button (click)="deleteMethod(todo.name)">X</button>
+  </div>
+
+  <hr>
+  <hr>
+
+  <div>
+    More {{todolist.length}} to go.
+  </div>
